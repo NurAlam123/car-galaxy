@@ -32,7 +32,7 @@ const CarDetails = ({ isOpen, closeModal, car }: CarDetailsProps) => {
             <div className="fixed bg-black bg-opacity-25 inset-0" />
           </TransitionChild>
           <div className="fixed inset-0 overflow-y-auto">
-            <div className="fixed min-h-full items-center justify-center p-4 text-center">
+            <div className="flex min-h-full items-center justify-center p-4 text-center">
               <TransitionChild
                 as={Fragment}
                 enter="ease-out duration-300"
@@ -68,7 +68,7 @@ const CarDetails = ({ isOpen, closeModal, car }: CarDetailsProps) => {
                       />
                     </div>
                     <div className="flex gap-3">
-                      <div className="flex-1">
+                      <div className="flex-1 relative w-full h-24 bg-primary-blue-100 rounded-lg">
                         <Image
                           src="/hero.png"
                           alt="car model"
@@ -77,7 +77,7 @@ const CarDetails = ({ isOpen, closeModal, car }: CarDetailsProps) => {
                           className="object-contain"
                         />
                       </div>
-                      <div className="flex-1">
+                      <div className="flex-1 relative w-full h-24 bg-primary-blue-100 rounded-lg">
                         <Image
                           src="/hero.png"
                           alt="car model"
@@ -86,7 +86,7 @@ const CarDetails = ({ isOpen, closeModal, car }: CarDetailsProps) => {
                           className="object-contain"
                         />
                       </div>
-                      <div className="flex-1">
+                      <div className="flex-1 relative w-full h-24 bg-primary-blue-100 rounded-lg">
                         <Image
                           src="/hero.png"
                           alt="car model"
