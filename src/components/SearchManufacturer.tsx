@@ -2,7 +2,14 @@
 
 import { manufacturers } from "@/constants";
 import { SearchManufacturerProps } from "@/types";
-import { Combobox, Transition } from "@headlessui/react";
+import {
+  Combobox,
+  ComboboxButton,
+  ComboboxInput,
+  ComboboxOption,
+  ComboboxOptions,
+  Transition,
+} from "@headlessui/react";
 import Image from "next/image";
 import React, { Fragment, useState } from "react";
 
@@ -26,7 +33,7 @@ const SearchManufacturer = ({
     <div className="search-manufacturer">
       <Combobox value={manufacturer} onChange={setManufacturer}>
         <div className="relative w-full">
-          <Combobox.Button className="absolute top-[14px]">
+          <ComboboxButton className="absolute top-[14px]">
             <Image
               src="/car-logo.svg"
               width={20}
@@ -34,13 +41,13 @@ const SearchManufacturer = ({
               className="ml-4"
               alt="car logo"
             />
-          </Combobox.Button>
-          <Combobox.Input
+          </ComboboxButton>
+          <ComboboxInput
             className="search-manufacturer__input"
             placeholder="volkswagen"
             displayValue={(manufacturer: string) => manufacturer}
             onChange={(e) => setQuery(e.target.value)}
-          ></Combobox.Input>
+          ></ComboboxInput>
           <Transition
             as={Fragment}
             leave="transition ease-in duration-100"
@@ -48,21 +55,21 @@ const SearchManufacturer = ({
             leaveTo="opacity-0"
             afterLeave={() => setQuery("")}
           >
-            <Combobox.Options>
+            <ComboboxOptions>
               {filteredManufactures.map((item) => (
-                <Combobox.Option
+                <ComboboxOption
                   key={item}
                   value={item}
-                  className={({ active }) =>
+                  className={({ focus }) =>
                     `relative search-manufacturer__option ${
-                      active ? "bg-primary-blue text-white" : "text-gray-900"
+                      focus ? "bg-primary-blue text-white" : "text-gray-900"
                     }`
                   }
                 >
                   {item}
-                </Combobox.Option>
+                </ComboboxOption>
               ))}
-            </Combobox.Options>
+            </ComboboxOptions>
           </Transition>
         </div>
       </Combobox>
