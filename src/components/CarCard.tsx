@@ -1,3 +1,5 @@
+"use client";
+
 import { CarProps } from "@/types";
 import { calculateCarRent } from "@/utils";
 import Image from "next/image";
